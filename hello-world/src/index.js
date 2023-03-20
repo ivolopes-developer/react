@@ -35,7 +35,30 @@ const Image = () => (
 const Title = () => {
   return <h2>A War Reporter's Mission to Make It Home</h2>;
 };
-const Author = () => <h4>Benjaming Hall</h4>;
+//method 1: styling inside h4 tag
+// const Author = () => (
+//   <h4
+//     style={{
+//       color: "#617",
+//       fontSize: "0.75rem",
+//       marginTop: "0.5rem",
+//       letterSpacing: "0.2rem",
+//     }}
+//   >
+//     Benjamin Hall
+//   </h4>
+// );
+
+//method 2: inline styling but outside the h4 tag
+const Author = () => {
+  const inlineHeadingStyles = {
+    color: "#617d98",
+    fontSize: "0.75rem",
+    marginTop: "0.75rem",
+  };
+
+  return <h4 style={inlineHeadingStyles}>Benjamin Hall</h4>;
+};
 //amazon best selling books - END ----------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
