@@ -16,48 +16,19 @@ function BookList() {
   );
 }
 
+const author = "Benjamin Hall";
 const Book = () => {
+  const title = "A War Reporter's Mission to Make It Home";
   return (
     <article className='book'>
-      <Image></Image>
-      <Title></Title>
-      <Author></Author>
+      <img
+        src='https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg'
+        alt='book1'
+      />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
-};
-
-const Image = () => (
-  <img
-    src='https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg'
-    alt='book1'
-  />
-);
-const Title = () => {
-  return <h2>A War Reporter's Mission to Make It Home</h2>;
-};
-//method 1: styling inside h4 tag
-// const Author = () => (
-//   <h4
-//     style={{
-//       color: "#617",
-//       fontSize: "0.75rem",
-//       marginTop: "0.5rem",
-//       letterSpacing: "0.2rem",
-//     }}
-//   >
-//     Benjamin Hall
-//   </h4>
-// );
-
-//method 2: inline styling but outside the h4 tag
-const Author = () => {
-  const inlineHeadingStyles = {
-    color: "#617d98",
-    fontSize: "0.75rem",
-    marginTop: "0.75rem",
-  };
-
-  return <h4 style={inlineHeadingStyles}>Benjamin Hall</h4>;
 };
 //amazon best selling books - END ----------------------------------------------------------------
 
