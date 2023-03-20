@@ -1,20 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function Greeting() {
+//import files
+import "./Styles/style.css";
+
+//amazon best selling books - START ----------------------------------------------------------------
+function BookList() {
   return (
-    <React.Fragment>
-      <Person></Person>
-      <Message></Message>
-    </React.Fragment>
+    <section className='booklist'>
+      <Book></Book>
+      <Book></Book>
+      <Book></Book>
+      <Book></Book>
+    </section>
   );
 }
 
-const Person = () => <h2>John Doe</h2>;
-const Message = () => {
-  return <p>this is my message</p>;
+const Book = () => {
+  return (
+    <article className='book'>
+      <Image></Image>
+      <Title></Title>
+      <Author></Author>
+    </article>
+  );
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const Image = () => (
+  <img
+    src='https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg'
+    alt='book1'
+  />
+);
+const Title = () => {
+  return <h2>A War Reporter's Mission to Make It Home</h2>;
+};
+const Author = () => <h4>Benjaming Hall</h4>;
+//amazon best selling books - END ----------------------------------------------------------------
 
-root.render(<Greeting />);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<BookList />);
