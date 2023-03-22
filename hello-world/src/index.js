@@ -21,27 +21,37 @@ const books = [
   },
 ];
 
+const EventExamples = () => {
+  const handleFormInput = () => {
+    console.log("handle form input");
+  };
+  const handleButtonClick = () => {
+    alert("handle button click");
+  };
+
+  return (
+    <React.Fragment>
+      <form>
+        <h2>Typical Form</h2>
+        <input
+          type='text'
+          name='example'
+          onChange={handleFormInput}
+          style={{ margin: "1rem 0" }}
+        />
+      </form>
+      <button onClick={handleButtonClick}>Click Me</button>
+    </React.Fragment>
+  );
+};
+
 //amazon best selling books - START ----------------------------------------------------------------
 function BookList() {
-  // return (
-  //   <section className='booklist'>
-  //     <Book
-  //       img={books[0].img}
-  //       title={books[0].title}
-  //       author={books[0].author}
-  //     ></Book>
-  //     <Book
-  //       img={books[1].img}
-  //       title={books[1].title}
-  //       author={books[1].author}
-  //     ></Book>
-  //   </section>
-  // );
   return (
     <section className='booklist'>
+      <EventExamples></EventExamples>
       {books.map((book) => {
-        const { img, title, author, id } = book;
-        return <Book img={img} title={title} author={author} key={id}></Book>;
+        return <Book {...book} key={book.id}></Book>;
       })}
     </section>
   );
