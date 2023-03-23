@@ -9,14 +9,16 @@ const books = [
   {
     author: "Benjamin Hall",
     title: "A War Reporter's Mission to Make It Home",
-    img: "https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg",
+    img:
+      "https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg",
     id: 1,
   },
   {
     author: "James Clear",
     title:
       "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-    img: "https://m.media-amazon.com/images/I/51B7kuFwQFL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    img:
+      "https://m.media-amazon.com/images/I/51B7kuFwQFL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
     id: 2,
   },
 ];
@@ -96,5 +98,15 @@ const Book = (props) => {
 };
 //amazon best selling books - END ----------------------------------------------------------------
 
+const App = () => {
+  return (
+    <React.Fragment>
+      <div>
+        <BookList></BookList>
+      </div>
+    </React.Fragment>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<BookList />);
+root.render(<App />);
