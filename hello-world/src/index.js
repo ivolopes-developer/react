@@ -66,26 +66,30 @@ const books = [
 
 //amazon best selling books - START ----------------------------------------------------------------
 function BookList() {
+  const someValue = "shake and bake";
+  const displayValue = () => {
+    console.log(someValue);
+  };
+
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book {...book} key={book.id}></Book>;
+        return (
+          <Book {...book} key={book.id} displayValue={displayValue}></Book>
+        );
       })}
     </section>
   );
 }
 
 const Book = (props) => {
-  const { img, title, author } = props;
-  const displayTitle = () => {
-    console.log(title);
-  };
+  const { img, title, author, displayValue } = props;
 
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayTitle}>Click me here omg</button>
+      <button onClick={displayValue}>Click me</button>
       <h4>{author}</h4>
     </article>
   );
