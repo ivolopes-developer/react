@@ -22,12 +22,21 @@ const books = [
 ];
 
 const EventExamples = () => {
-  const handleFormInput = () => {
-    console.log("handle form input");
-  };
-  const handleButtonClick = () => {
-    alert("handle button click");
-  };
+  // const handleFormInput = (e) => {
+  //   console.log(e.target);
+  //   console.log(e.target.name);
+  //   console.log(e.target.value);
+  //   console.log("handle form input");
+  // };
+
+  // const handleButtonClick = () => {
+  //   alert("handle button click");
+  // };
+
+  // const handleFormSubmission = (e) => {
+  //   e.preventDefault();
+  //   console.log("form submission done");
+  // };
 
   return (
     <React.Fragment>
@@ -35,12 +44,22 @@ const EventExamples = () => {
         <h2>Typical Form</h2>
         <input
           type='text'
-          name='example'
-          onChange={handleFormInput}
+          name='product'
+          onChange={(e) => console.log(e.target.value)}
           style={{ margin: "1rem 0" }}
         />
+        <div>
+          <button
+            type='button'
+            /* onClick={handleFormSubmission} */ onClick={() =>
+              console.log("click me")
+            }
+          >
+            Form Submit
+          </button>
+        </div>
       </form>
-      <button onClick={handleButtonClick}>Click Me</button>
+      {/* <button onClick={handleButtonClick}>Click Me</button> */}
     </React.Fragment>
   );
 };
