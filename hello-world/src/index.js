@@ -3,23 +3,8 @@ import ReactDOM from "react-dom/client";
 
 //import files
 import "./Styles/style.css";
-
-//array of books
-const books = [
-  {
-    author: "Benjamin Hall",
-    title: "A War Reporter's Mission to Make It Home",
-    img: "https://images-na.ssl-images-amazon.com/images/I/713F+ivM9NL._AC_UL600_SR600,400_.jpg",
-    id: 1,
-  },
-  {
-    author: "James Clear",
-    title:
-      "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-    img: "https://m.media-amazon.com/images/I/51B7kuFwQFL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
-    id: 2,
-  },
-];
+import { books } from "./books.js";
+import { Book } from "./Book";
 
 // const EventExamples = () => {
 //   // const handleFormInput = (e) => {
@@ -65,36 +50,23 @@ const books = [
 // };
 
 //amazon best selling books - START ----------------------------------------------------------------
-function BookList() {
-  const getBook = (id) => {
-    const book = books.find((book) => book.id === id);
-    console.log(book);
-  };
-
-  return (
-    <section className='booklist'>
-      {books.map((book) => {
-        return <Book {...book} key={book.id} getBook={getBook}></Book>;
-      })}
-    </section>
-  );
-}
-
-const Book = (props) => {
-  const { img, title, author, getBook, id } = props;
+const BookList = () => {
+  // const getBook = (id) => {
+  //   const book = books.find((book) => book.id === id);
+  //   console.log(book);
+  // };
 
   return (
     <React.Fragment>
-      <article className='book'>
-        <img src={img} alt={title} />
-        <h2>{title}</h2>
-        <button onClick={() => getBook(id)}>Click me</button>
-        <h4>{author}</h4>
-      </article>
+      <h1 className='title'>Amazon Best Selling Books</h1>
+      <section className='booklist'>
+        {books.map((book, index) => {
+          return <Book {...book} key={book.id} number={index}></Book>;
+        })}
+      </section>
     </React.Fragment>
   );
 };
-//amazon best selling books - END ----------------------------------------------------------------
 
 const App = () => {
   return (
