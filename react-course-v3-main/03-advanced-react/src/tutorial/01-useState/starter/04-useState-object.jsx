@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 
 const UseStateObject = () => {
-  const [name, setName] = useState("Peter");
-  const [age, setAge] = useState(24);
-  const [hobby, setHobby] = useState("personal trainer");
+  const [person, setPerson] = useState({
+    name: "peter",
+    age: 24,
+    hobby: "read books",
+  });
 
+  /**
+   * When the button is clicked, the person object is updated with a new name.
+   */
   const displayPerson = () => {
-    setName("John");
-    setAge(28);
-    setHobby("joga ao computador, kek");
+    // setPerson({ name: "john", age: 28, hobby: "joga ao computador, lel" }); -> updates the entire object
+    // setPerson("shakeAndBake"); ->
+    // setPerson({ name: "susan" });
+    setPerson({ ...person, name: "susan" });
   };
 
   return (
     <React.Fragment>
-      <h3>{name}</h3>
-      <h3>Age: {age}</h3>
-      <h4>Enjoys: {hobby}</h4>
+      <h3>{person.name}</h3>
+      <h3>Age: {person.age}</h3>
+      <h4>Enjoys: {person.hobby}</h4>
       <button className='btn' type='button' onClick={displayPerson}>
         Show John
       </button>
