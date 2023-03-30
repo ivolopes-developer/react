@@ -1,4 +1,4 @@
-import Starter from "./tutorial/02-useEffect/starter/02-useEffect-basics";
+import Starter from "./tutorial/02-useEffect/starter/04-fetch-data";
 // import Final from "./tutorial/01-useState/starter/01-error-example";
 
 function App() {
