@@ -6,13 +6,21 @@ const MultipleReturnsFetchData = () => {
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
 
+  /* A hook that is called when the component mounts. */
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const resultLog = await fetch(url);
+
+        if (!resultLog.ok) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
+
         const user = await resultLog.json();
 
-        console.log(user);
+        console.log(resultLog);
         setUser(user);
       } catch (error) {
         console.log(error);
