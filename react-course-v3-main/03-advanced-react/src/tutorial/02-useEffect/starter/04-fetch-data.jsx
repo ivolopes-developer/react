@@ -9,7 +9,6 @@ const FetchData = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
-        const users = await response.json();
 
         setUsers(users);
       } catch (error) {
