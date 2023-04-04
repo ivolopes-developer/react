@@ -27,7 +27,7 @@ const ShortCircuitExamples = () => {
       {/* {user ? <SomeComponent name={user.name} /> : "é falso"} */}
       <button className='btn'>{isEditing ? "edit" : "add"}</button>
 
-      {/* verify if user exists, if not return "please login" */}
+      {/* verify if user exists/is truthy, if not return "please login" */}
       {user ? (
         <div>
           <h4>Hello there {user.name}</h4>
