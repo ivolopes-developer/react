@@ -69,6 +69,7 @@ const UserChallenge = () => {
             <li key={user.id}>
               {user.name}
               <button
+                style={{ marginLeft: "20px" }}
                 type='button'
                 className='btn'
                 onClick={() => removeUser(user.id)}
