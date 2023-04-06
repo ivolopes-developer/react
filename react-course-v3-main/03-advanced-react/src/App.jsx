@@ -1,4 +1,4 @@
-import Starter from "./tutorial/06-forms/starter/03-multiple-inputs";
+import Starter from "./tutorial/06-forms/starter/04-other-inputs";
 import Navbar from "./tutorial/04-project-structure/starter/Navbar";
 import { Home, About } from "./tutorial/04-project-structure/starter/Pages"; //importing pages
 import Example from "./tutorial/04-project-structure/starter/Example";
