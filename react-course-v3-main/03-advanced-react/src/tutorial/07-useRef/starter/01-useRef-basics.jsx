@@ -2,13 +2,20 @@ import { useEffect, useRef, useState } from "react";
 
 const UseRefBasics = () => {
   const [value, setValue] = useState(0);
-
   const refContainer = useRef(null);
-  console.log(refContainer);
+  const isMounted = useRef(false);
 
-  // useEffect(() => {
-  //   console.log(refContainer);
-  // });
+  useEffect(() => {
+    refContainer.current.focus();
+  });
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    console.log("re-render");
+  }, [value]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +42,6 @@ const UseRefBasics = () => {
         </button>
       </form>
       <h1>value : {value}</h1>
-      <h1>name : {refContainer.current.value}</h1>
       <button onClick={() => setValue(value + 1)} className='btn'>
         increase
       </button>
