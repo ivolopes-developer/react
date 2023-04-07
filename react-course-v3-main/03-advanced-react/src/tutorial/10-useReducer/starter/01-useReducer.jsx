@@ -1,5 +1,5 @@
-import React from 'react';
-import { data } from '../../../data';
+import React from "react";
+import { data } from "../../../data";
 const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data);
 
@@ -20,7 +20,7 @@ const ReducerBasics = () => {
       })}
       <button
         className='btn'
-        style={{ marginTop: '2rem' }}
+        style={{ marginTop: "2rem" }}
         onClick={() => setPeople([])}
       >
         clear items
