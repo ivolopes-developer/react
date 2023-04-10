@@ -1,6 +1,10 @@
 import React, { useReducer } from "react";
 import { data } from "../../../data";
 
+const CLEAR_LIST = "CLEAR_LIST";
+const RESET_LIST = "RESET_LIST";
+const REMOVE_ITEM = "REMOVE_ITEM";
+
 /* `const defaultState` is initializing the default state of the application. In this case, it is an
 object with a property `people` that is set to the `data` array imported from an external file. This
 default state will be used by the `useReducer` hook to initialize the state of the application. */
@@ -14,9 +18,14 @@ const defaultState = {
  * action type.
  */
 const reducer = (state, action) => {
-  if (action.type === "CLEAR_LIST") {
+  if (action.type === CLEAR_LIST) {
     return { ...state, people: [] };
+  } else if (action.type === RESET_LIST) {
+    return { ...state, people: data };
   }
+
+  // return state;
+  throw new Error(`Invalid action: ${action.type}`);
 };
 
 const ReducerBasics = () => {
@@ -35,11 +44,12 @@ const ReducerBasics = () => {
   };
 
   const resetPeople = () => {
+    dispatch({ type: RESET_LIST });
     // setPeople(data);
   };
 
   const clearPeople = () => {
-    dispatch({ type: "CLEAR_LIST" });
+    dispatch({ type: CLEAR_LIST });
     // setPeople([]);
   };
 
