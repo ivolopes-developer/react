@@ -22,6 +22,8 @@ const reducer = (state, action) => {
     return { ...state, people: [] };
   } else if (action.type === RESET_LIST) {
     return { ...state, people: data };
+  } else if (action.type === REMOVE_ITEM) {
+    return {};
   }
 
   // return state;
@@ -39,6 +41,7 @@ const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
+    dispatch({ type: REMOVE_ITEM, id: id });
     // let newPeople = people.filter((person) => person.id !== id);
     // setPeople(newPeople);
   };
@@ -66,7 +69,7 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {people.length < 1 ? (
+      {state.people.length < 1 ? (
         <button
           className='btn'
           style={{ marginTop: "2rem" }}
