@@ -6,13 +6,18 @@ object with a property `people` that is set to the `data` array imported from an
 default state will be used by the `useReducer` hook to initialize the state of the application. */
 const defaultState = {
   people: data,
+  isLoading: false,
 };
 
 /**
  * This is a reducer function that takes in a state and an action and returns a new state based on the
  * action type.
  */
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  if (action.type === "CLEAR_LIST") {
+    return { ...state, people: [] };
+  }
+};
 
 const ReducerBasics = () => {
   /* `useReducer(reducer, defaultState)` is a React hook that initializes a state and a dispatch
@@ -33,6 +38,11 @@ const ReducerBasics = () => {
     // setPeople(data);
   };
 
+  const clearPeople = () => {
+    dispatch({ type: "CLEAR_LIST" });
+    // setPeople([]);
+  };
+
   console.log(state);
 
   return (
@@ -46,21 +56,21 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {people.length != 0 ? (
+      {people.length < 1 ? (
         <button
           className='btn'
           style={{ marginTop: "2rem" }}
-          onClick={() => setPeople([])}
+          onClick={resetPeople}
         >
-          clear items
+          Reset
         </button>
       ) : (
         <button
-          onClick={resetPeople}
+          onClick={clearPeople}
           className='btn'
           style={{ marginTop: "2rem" }}
         >
-          Reset
+          Clear
         </button>
       )}
     </div>
