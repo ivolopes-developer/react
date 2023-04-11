@@ -1,9 +1,7 @@
 import React, { useReducer } from "react";
 import { data } from "../../../data";
-
-const CLEAR_LIST = "CLEAR_LIST";
-const RESET_LIST = "RESET_LIST";
-const REMOVE_ITEM = "REMOVE_ITEM";
+import { CLEAR_LIST, REMOVE_ITEM, RESET_LIST } from "./actions";
+import reducer from "./reducer";
 
 /* `const defaultState` is initializing the default state of the application. In this case, it is an
 object with a property `people` that is set to the `data` array imported from an external file. This
@@ -17,25 +15,6 @@ const defaultState = {
  * This is a reducer function that takes in a state and an action and returns a new state based on the
  * action type.
  */
-const reducer = (state, action) => {
-  if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] };
-  } else if (action.type === RESET_LIST) {
-    return { ...state, people: data };
-  } else if (action.type === REMOVE_ITEM) {
-    /* `let newPeople = people.filter((person) => person.id !== id)` is filtering out the person with
-    the specified `id` from the `people` array and creating a new array `newPeople` that does not
-    include that person. This is used in the `REMOVE_ITEM` case of the `reducer` function to update
-    the state with the new array of people. */
-    let newPeople = state.people.filter(
-      (person) => person.id !== action.payload.id
-    );
-    return { ...state, people: newPeople };
-  }
-
-  // return state;
-  throw new Error(`Invalid action: ${action.type}`);
-};
 
 const ReducerBasics = () => {
   /* `useReducer(reducer, defaultState)` is a React hook that initializes a state and a dispatch
