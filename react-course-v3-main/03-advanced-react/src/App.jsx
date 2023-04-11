@@ -1,5 +1,5 @@
 // import Starter from "./tutorial/09-context-api/starter/Navbar";
-import Starter from "./tutorial/10-useReducer/starter/01-useReducer";
+import Starter from "./tutorial/11-performance/starter/02-lower-state-challenge";
 import Navbar from "./tutorial/04-project-structure/starter/Navbar";
 import { Home, About } from "./tutorial/04-project-structure/starter/Pages"; //importing pages
 import Example from "./tutorial/04-project-structure/starter/Example";
