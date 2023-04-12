@@ -1,5 +1,5 @@
 // import Starter from "./tutorial/09-context-api/starter/Navbar";
-import Starter from "./tutorial/11-performance/starter/03-hooks";
+import Starter from "./tutorial/11-performance/starter/04-react-18";
 import Navbar from "./tutorial/04-project-structure/starter/Navbar";
 import { Home, About } from "./tutorial/04-project-structure/starter/Pages"; //importing pages
 import Example from "./tutorial/04-project-structure/starter/Example";
