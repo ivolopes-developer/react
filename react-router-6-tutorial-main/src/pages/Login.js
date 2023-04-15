@@ -7,8 +7,6 @@ const Login = ({ setUser, user }) => {
 
 	const navigate = useNavigate();
 
-	console.log(user);
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
