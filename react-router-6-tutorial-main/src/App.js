@@ -8,6 +8,7 @@ import SingleProduct from "./pages/SingleProduct";
 import { useState } from "react";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -25,11 +26,15 @@ function App() {
 					></Route>
 					<Route
 						path='login'
-						element={<Login setUser={setUser}></Login>}
+						element={<Login setUser={setUser} user={user}></Login>}
 					></Route>
 					<Route
 						path='dashboard'
-						element={<Dashboard user={user}></Dashboard>}
+						element={
+							<ProtectedRoute user={user}>
+								<Dashboard user={user}></Dashboard>
+							</ProtectedRoute>
+						}
 					></Route>
 					<Route path='*' element={<Error></Error>}></Route>
 				</Route>
