@@ -35,9 +35,16 @@ const CartContainer = () => {
 						total: <span>${total}</span>
 					</h4>
 				</div>
-				<button className='btn clear-btn' onClick={() => dispatch(clearCart())}>
-					Clear Cart
-				</button>
+				{cartItems.length > 0 ? (
+					<button
+						className='btn clear-btn'
+						onClick={() => {
+							dispatch(clearCart());
+						}}
+					>
+						Clear Cart
+					</button>
+				) : null}
 			</footer>
 		</section>
 	);
